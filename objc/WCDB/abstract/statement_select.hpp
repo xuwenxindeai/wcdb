@@ -30,7 +30,7 @@ public:
     template <typename T = ColumnResult>
     typename std::enable_if<std::is_base_of<ColumnResult, T>::value,
                             StatementSelect &>::type
-    select(const std::list<const T> &columnResultList, bool distinct = false)
+    select(const std::list<T> &columnResultList, bool distinct = false)
     {
         m_description.append("SELECT ");
         if (distinct) {
@@ -43,7 +43,7 @@ public:
     template <typename T = Subquery>
     typename std::enable_if<std::is_base_of<Subquery, T>::value,
                             StatementSelect &>::type
-    from(const std::list<const T> &subqueryList)
+    from(const std::list<T> &subqueryList)
     {
         m_description.append(" FROM ");
         joinDescribableList(subqueryList);
@@ -57,7 +57,7 @@ public:
     template <typename T = Order>
     typename std::enable_if<std::is_base_of<Order, T>::value,
                             StatementSelect &>::type
-    orderBy(const std::list<const T> &orderList)
+    orderBy(const std::list<T> &orderList)
     {
         if (!orderList.empty()) {
             m_description.append(" ORDER BY ");
@@ -75,7 +75,7 @@ public:
     template <typename T = Expr>
     typename std::enable_if<std::is_base_of<Expr, T>::value,
                             StatementSelect &>::type
-    groupBy(const std::list<const T> &groupList)
+    groupBy(const std::list<T> &groupList)
     {
         if (!groupList.empty()) {
             m_description.append(" GROUP BY ");

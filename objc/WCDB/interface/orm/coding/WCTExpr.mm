@@ -474,16 +474,16 @@ WCTExpr WCTExpr::Case(const WCTExpr &case_, const std::list<std::pair<WCTExpr, W
 }
 
 WCTExprList::WCTExprList()
-    : std::list<const WCTExpr>()
+    : std::list<WCTExpr>()
 {
 }
 
 WCTExprList::WCTExprList(const WCTExpr &expr)
-    : std::list<const WCTExpr>({expr})
+    : std::list<WCTExpr>({expr})
 {
 }
 
-WCTExprList::WCTExprList(std::initializer_list<const WCTExpr> il)
-    : std::list<const WCTExpr>(il.begin(), il.end())
+WCTExprList::WCTExprList(std::initializer_list<WCTExpr> il)
+    : std::list<WCTExpr>(il.begin(), il.end())
 {
 }

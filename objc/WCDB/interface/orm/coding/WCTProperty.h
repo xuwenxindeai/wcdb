@@ -147,11 +147,11 @@ protected:
                 const std::shared_ptr<WCTColumnBinding> &columnBinding);
 };
 
-class WCTPropertyList : public std::list<const WCTProperty> {
+class WCTPropertyList : public std::list<WCTProperty> {
 public:
     WCTPropertyList();
     WCTPropertyList(const WCTProperty &property);
-    WCTPropertyList(std::initializer_list<const WCTProperty> il);
+    WCTPropertyList(std::initializer_list<WCTProperty> il);
 
     WCTPropertyList inTable(NSString *tableName) const;
 };

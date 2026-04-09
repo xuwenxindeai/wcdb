@@ -52,31 +52,31 @@ WCTResultList WCTResult::distinct() const
 }
 
 WCTResultList::WCTResultList()
-    : std::list<const WCTResult>()
+    : std::list<WCTResult>()
     , m_distinct(false)
 {
 }
 
 WCTResultList::WCTResultList(const WCTPropertyList &propertyList)
-    : std::list<const WCTResult>(propertyList.begin(), propertyList.end())
+    : std::list<WCTResult>(propertyList.begin(), propertyList.end())
     , m_distinct(false)
 {
 }
 
 WCTResultList::WCTResultList(const WCTExprList &exprList)
-    : std::list<const WCTResult>(exprList.begin(), exprList.end())
+    : std::list<WCTResult>(exprList.begin(), exprList.end())
     , m_distinct(false)
 {
 }
 
-WCTResultList::WCTResultList(std::initializer_list<const WCTExpr> il)
-    : std::list<const WCTResult>(il.begin(), il.end())
+WCTResultList::WCTResultList(std::initializer_list<WCTExpr> il)
+    : std::list<WCTResult>(il.begin(), il.end())
     , m_distinct(false)
 {
 }
 
-WCTResultList::WCTResultList(std::initializer_list<const WCTProperty> il)
-    : std::list<const WCTResult>(il.begin(), il.end())
+WCTResultList::WCTResultList(std::initializer_list<WCTProperty> il)
+    : std::list<WCTResult>(il.begin(), il.end())
     , m_distinct(false)
 {
 }
@@ -92,8 +92,8 @@ bool WCTResultList::isDistinct() const
     return m_distinct;
 }
 
-WCTResultList::WCTResultList(std::initializer_list<const WCTPropertyList> il)
-    : std::list<const WCTResult>()
+WCTResultList::WCTResultList(std::initializer_list<WCTPropertyList> il)
+    : std::list<WCTResult>()
 {
     for (const auto &propertyList : il) {
         for (const auto &property : propertyList) {

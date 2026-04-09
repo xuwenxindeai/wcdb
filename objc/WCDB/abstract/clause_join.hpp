@@ -45,7 +45,7 @@ public:
     template <typename T = Column>
     typename std::enable_if<std::is_base_of<Column, T>::value,
                             JoinClause &>::type
-    usingColumns(const std::list<const T> &columnList)
+    usingColumns(const std::list<T> &columnList)
     {
         m_description.append(" USING ");
         joinDescribableList(columnList);

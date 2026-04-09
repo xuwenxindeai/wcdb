@@ -434,17 +434,17 @@ NSString *WCTProperty::getDescription() const
 }
 
 WCTPropertyList::WCTPropertyList()
-    : std::list<const WCTProperty>()
+    : std::list<WCTProperty>()
 {
 }
 
 WCTPropertyList::WCTPropertyList(const WCTProperty &property)
-    : std::list<const WCTProperty>({property})
+    : std::list<WCTProperty>({property})
 {
 }
 
-WCTPropertyList::WCTPropertyList(std::initializer_list<const WCTProperty> il)
-    : std::list<const WCTProperty>(il)
+WCTPropertyList::WCTPropertyList(std::initializer_list<WCTProperty> il)
+    : std::list<WCTProperty>(il)
 {
 }
 

@@ -166,9 +166,9 @@ protected:
     WCDB::LiteralValue literalValue(WCTValue *value);
 };
 
-class WCTExprList : public std::list<const WCTExpr> {
+class WCTExprList : public std::list<WCTExpr> {
 public:
     WCTExprList();
     WCTExprList(const WCTExpr &expr);
-    WCTExprList(std::initializer_list<const WCTExpr> il);
+    WCTExprList(std::initializer_list<WCTExpr> il);
 };

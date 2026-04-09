@@ -35,7 +35,7 @@ public:
     template <typename T = ColumnIndex>
     typename std::enable_if<std::is_base_of<ColumnIndex, T>::value,
                             TableConstraint &>::type
-    makePrimary(const std::list<const T> &columnIndexList)
+    makePrimary(const std::list<T> &columnIndexList)
     {
         m_description.append(" PRIMARY KEY(");
         joinDescribableList(columnIndexList);
@@ -46,7 +46,7 @@ public:
     template <typename T = ColumnIndex>
     typename std::enable_if<std::is_base_of<ColumnIndex, T>::value,
                             TableConstraint &>::type
-    makeUnique(const std::list<const T> &columnIndexList)
+    makeUnique(const std::list<T> &columnIndexList)
     {
         m_description.append(" UNIQUE (");
         joinDescribableList(columnIndexList);

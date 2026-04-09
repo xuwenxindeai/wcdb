@@ -33,7 +33,7 @@ public:
     template <typename T = Order>
     typename std::enable_if<std::is_base_of<Order, T>::value,
                             StatementDelete &>::type
-    orderBy(const std::list<const T> &orderList)
+    orderBy(const std::list<T> &orderList)
     {
         if (!orderList.empty()) {
             m_description.append(" ORDER BY ");

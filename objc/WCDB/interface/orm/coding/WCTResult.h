@@ -34,7 +34,7 @@ public:
     NSString *getDescription() const;
 };
 
-class WCTResultList : public std::list<const WCTResult> {
+class WCTResultList : public std::list<WCTResult> {
 public:
     WCTResultList();
 
@@ -43,17 +43,17 @@ public:
         const T &value,
         typename std::enable_if<
             std::is_constructible<WCTResult, T>::value>::type * = nullptr)
-        : std::list<const WCTResult>({WCTResult(value)}), m_distinct(false)
+        : std::list<WCTResult>({WCTResult(value)}), m_distinct(false)
     {
     }
 
-    WCTResultList(std::initializer_list<const WCTExpr> il);
-    WCTResultList(std::initializer_list<const WCTProperty> il);
+    WCTResultList(std::initializer_list<WCTExpr> il);
+    WCTResultList(std::initializer_list<WCTProperty> il);
 
     WCTResultList(const WCTPropertyList &propertyList);
     WCTResultList(const WCTExprList &exprList);
 
-    WCTResultList(std::initializer_list<const WCTPropertyList> il);
+    WCTResultList(std::initializer_list<WCTPropertyList> il);
 
     WCTResultList &distinct();
 
